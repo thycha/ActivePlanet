@@ -1,0 +1,320 @@
+{% extends 'Frontpage/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .about{
+      background-image: none;
+    }
+</style>
+
+<!-- Page Header Start here -->
+<section class="page-header section-notch">
+    <div class="overlay">
+        <div class="container">
+            <h3>About Us</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li>-</li>
+                <li>About us</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Page Header End here -->
+
+<!-- About Start here -->
+<section class="about about-two padding-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-image">
+                    <img src="{% static 'frontpage/banner/banner_01.png' %}" alt="about image" class="img-responsive">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h3>About Us</h3>
+                    <p style="text-align: justify;">Welcome to Active Planet, India's first active play park, where adventure knows no bounds. Nestled amidst a 10,000 square feet vertical garden, this play park offers visitors of all ages a world of unforgettable experiences. With an exciting array of over 40 unique experiences and attractions, we cater to diverse tastes. Beyond the exhilarating activities, special events and celebrations further enhance the thrill for our visitors. Join us and explore the limitless space of adventure and joy.</p>
+                    <!-- <ul>
+                      <li><a href="#" class="button-default">Read More</a></li>
+                      <li><a href="#" class="button-default">Buy Now</a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About End here -->
+
+<!-- Achievements Start here -->
+<section class="achievements section-notch">
+    <div class="overlay padding-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="achievement-item">
+                        <img src="{% static 'frontpage/icons8-management-100.png' %}" style="max-width: 30%;"  alt=""><br>
+                        <span class="counter">250</span><span>k+</span>
+                        <p>Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="achievement-item">
+                        <img src="{% static 'frontpage/icons8-ferris-wheel-100.png' %}" style="max-width: 30%;" alt=""><br>
+                        <span class="counter">40</span><span>+</span>
+                        <p>Unique Experience</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="achievement-item">
+                        <img src="{% static 'frontpage/icons8-pizza-100.png' %}" style="max-width: 30%;"  alt=""><br>
+                        <span class="counter">100</span><span>+</span>
+                        <p>Food Varieties</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="achievement-item">
+                        <img src="{% static 'frontpage/icons8-land-96.png' %}" style="max-width: 32%;"  alt=""><br>
+                        <span class="counter">10,000</span><span>+</span>
+                        <p>Vertical Garden</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Achievements End here -->
+
+<!-- Testimonial Start here -->
+<section class="testimonial padding-120">
+    <div class="container">
+        <div class="section-header">
+            <h3>Hear From Our Lil Explorers</h3>
+            <p>Listen to the wonder through the eyes of our young explorers as they share their thrilling escapades at Active Planet.</p>
+        </div>
+        <div class="testimonial-items">
+            <div class="testimonial-slider-two swiper-container">
+              <div class="swiper-wrapper">
+                
+                {% for review in reviews %}
+                  <div class="testimonial-item swiper-slide">
+                    <div class="testimonial-details" style="min-height: 150px;">
+                      <p>{{ review.Description | slice:':500' }}</p>
+                      <h4>{{ review.Name }} <span>{{ review.Place }}</span></h4>
+                      <!-- <img src="{% static 'images/testimonial/testimonial_icon_01.jpg' %}" alt="testimonial icon"
+                        class="img-responsive"> -->
+                        {% if review.Rating == 1 %}
+                          <span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                        {% elif review.Rating == 2 %}
+                          <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                        {% elif review.Rating == 3 %}
+                          <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                        {% elif review.Rating == 4 %}
+                          <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>
+                        {% elif review.Rating == 5 %}
+                          <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                        {% endif %}
+                    </div>
+                    <!-- <div class="testimonial-image">
+                      <img src="{% static 'images/testimonial/testimonial_01.jpg' %}" alt="client image"
+                        class="img-responsive">
+                    </div> -->
+                  </div>
+                {% endfor %}
+
+              </div>
+            </div>
+        </div>
+        <div style="align-items: end; display: flex; justify-content: end; margin-top: 20px; ">
+            <a href="{% url 'review' %}">
+                <button style="background-color:rgb(146, 39, 143); border-radius: 5px;"><h4 style="color: white;" >Write Your Reviews ></h4></button>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Testimonial End here -->
+
+<!-- Rides Start here -->
+<section class="teachers teachers-two">
+    <div class="overlay padding-120" style="background-color:  rgba(252, 127, 12, .8);">
+        <div class="container">
+            <div class="section-header bg">
+                <h3>Our Exciting Rides</h3>
+            </div>
+            <div class="teacher-items">
+              <div class="teacher-slider swiper-container">
+                <div class="swiper-wrapper">
+                  
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2855.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2635.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+                  
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2676.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2770.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+                  
+                  <!-- <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2813.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div> -->
+
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2840.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+
+                  <div class="teacher-item swiper-slide">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/about/_I2A2847.JPG' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                  </div>
+
+                </div><!-- swiper-wrapper -->
+              </div><!-- swiper-container -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Rides End here -->
+
+<!-- facility Start here -->
+<section class="facility padding-120" style="margin-top: -70px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="facility-item" >
+						<span ><img src="{% static 'frontpage/image/_I2A2974.jpg' %}" style="height: 250px; width: 300px; border-radius:50% ; overflow: hidden; object-fit: cover;" alt=""></span>
+						<h4 style="margin-top: 15px;">UNIQUE RIDES
+							40+ EXPERIENCES</h4>
+						<p style="text-align: justify;">Engage in an invigorating array of rides and activities , with over 40 unique ride experiences that promise to stimulate both mind and body, making Active Planet the ultimate hub for interactive play and adventure in India.
+             </p>
+					</div><!-- facility item -->
+				</div>
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="facility-item">
+						<span > <img src="{% static 'frontpage/image/_I2A2999.jpg' %}" style="height: 250px; width: 300px; border-radius:50% ; overflow: hidden; object-fit: cover;" alt=""></span>
+						<h4 style="margin-top: 15px;">EVERYDAY
+							ENTERTAINMENT</h4>
+						<p style="text-align: justify;">Delight in daily doses of fun and excitement through a dynamic lineup of events, workshops, and performances that cater to visitors of all ages, ensuring there's never a dull moment at Active Planet, where entertainment is a way of life.
+            </p>
+					</div><!-- facility item -->
+				</div>
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="facility-item">
+						<span ><img src="{% static 'frontpage/garden.jpg' %}" style="height: 250px; width: 300px; border-radius:50% ; overflow: hidden;object-fit: cover;" alt=""></span>
+						<h4 style="margin-top: 15px;">10000+ SQ. FT OF
+							VERTICAL GARDEN</h4>
+						<p style="text-align: justify;"> Immerse yourself in the tranquil beauty of our expansive 10,000+ square feet vertical garden, providing a breathtaking natural backdrop for relaxation and introspection, making Active Planet a haven of peace and serenity amidst the bustling urban landscape.
+
+            </p>
+					</div><!-- facility item -->
+				</div>
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="facility-item">
+						<span ><img src="{% static 'frontpage/WhatsApp Image 2023-10-25 at 16.33.37_98aab03f.jpg' %}" style="height: 250px; width: 300px; border-radius:50% ; overflow: hidden;object-fit: cover;" alt=""></span>
+						<h4 style="margin-top: 15px;">RELAX @ THE <br>
+							FOOD-COURT</h4>
+						<p style="text-align: justify;"> Indulge in a culinary journey at our vibrant food court, where an eclectic mix of flavours and cuisines awaits, allowing you to unwind and savour a variety of delectable dishes, ensuring that every visit to Active Planet is a delightful feast for the senses.</p>
+					</div><!-- facility item -->
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+</section><!-- facility -->
+<!-- facility End here -->
+
+<!-- Directors Start here -->
+<section class="teachers section-notch">
+    <div class="overlay padding-120" >
+        <div class="container">
+            <div class="section-header bg">
+                <h3>Meet Our Team</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-xs-12 director-col">
+                    <div class="teacher-item">
+                        <div class="teacher-image">
+                            <img src="{% static 'frontpage/md.jpg' %}" alt="teacher image" class="img-responsive">
+                        </div>
+                        <div class="teacher-content">
+                            <h4>Nizar Abdulla <br><span>Managing Director</span></h4>
+                            <p>Distinctively initiate and sustainable synergy vaan tactical opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-xs-12 director-col">
+                  <div class="teacher-item">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/ed.jpeg' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                    <div class="teacher-content">
+                      <h4>Shahanas Basheer <br><span>Executive Director</span></h4>
+                      <p>Distinctively initiate and sustainable synergy vaan tactical opportunities.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-xs-12 director-col">
+                  <div class="teacher-item">
+                    <div class="teacher-image">
+                      <img src="{% static 'frontpage/Director.png' %}" alt="teacher image" class="img-responsive">
+                    </div>
+                    <div class="teacher-content">
+                      <h4>Majeed Nottan <br><span>Director</span></h4>
+                      <p>Distinctively initiate and sustainable synergy vaan tactical opportunities.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Directors End here -->
+
+{% if partners %}
+  <!-- Partner Start here -->
+    <section class="partner partner-two padding-120">
+      <div class="container">
+        <div class="section-header">
+          <h3>Our Partners Logo</h3>
+          <p>Rapidiously expedite granular imperatives before economically sound web services. Credibly actualize pandemic
+            strategic themeplatform.</p>
+        </div>
+        <div class="partner-items">
+          <div class="partner-slider swiper-container">
+            <div class="swiper-wrapper">
+              
+              {% for partner in partners %}
+                  <div class="partner-item swiper-slide">
+                    <img src="{{ partner.Image.url }}" alt="partner image" class="img-responsive">
+                  </div>
+              {% endfor %}
+
+            </div><!-- swiper-wrapper -->
+          </div><!-- swiper-container -->
+        </div><!-- partner-items -->
+      </div><!-- container -->
+    </section><!-- partner -->
+  <!-- Partner End here -->
+{% endif %}
+
+{% endblock content %}

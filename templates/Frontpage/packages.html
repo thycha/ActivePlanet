@@ -1,0 +1,73 @@
+{% extends 'Frontpage/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  img {
+      max-height: 550px;
+  }
+</style>
+
+  <!-- Page Header Start here -->
+  <section class="page-header section-notch">
+    <div class="overlay">
+      <div class="container">
+        <h3>Our Packages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>-</li>
+          <li>Packages</li>
+        </ul>
+      </div><!-- container -->
+    </div><!-- overlay -->
+  </section><!-- page header -->
+
+  <section class="rides padding-120" style="margin-top: -50px;">
+    <div class="container text-center">
+        <div class="section-header">
+            <h3>Package For Visitors</h3>
+            <!-- <p>Spark excitement and forge unforgettable memories with our exclusive group school tour packages, specially curated to infuse learning with adventure. Seize the opportunity to indulge in thrilling experiences at exclusive rates, ensuring an educational journey that promises fun-filled exploration.</p> -->
+        </div>
+        <img src="{% static 'frontpage/package/pricing.png' %}" style="border-radius: 20px;" alt="">
+    </div>
+  </section>
+
+<!-- Page Header End here -->
+<section class="rides padding-120" style="margin-top: -175px;">
+    <div class="container">
+        <div class="section-header">
+            <h3>School picnic Packages</h3>
+            <p>Spark excitement and forge unforgettable memories with our exclusive group school tour packages, specially curated to infuse learning with adventure. Seize the opportunity to indulge in thrilling experiences at exclusive rates, ensuring an educational journey that promises fun-filled exploration.</p>
+        </div>
+        <img src="{% static 'frontpage/package/package.jpg' %}" style="border-radius: 20px;" alt="">
+        <!-- <div class="class-button">
+            <a href="rides.html" class="button-default">See More Upcoming Events</a>
+        </div> -->
+    </div><!-- container -->
+</section><!-- rides -->
+
+{% if schools %}
+<!-- rides Start here -->
+<section class="rides padding-120" style="margin-top: -175px;">
+  <div class="container">
+    <div class="section-header">
+      <h3>Happy Schools</h3>
+    </div>
+
+    <div class="row" >
+      {% for school in schools %}
+        <div class="col-lg-6 col-sm-6 col-xs-12">
+          <div class="class-item" style="text-align: end;">
+            <div class="content" >
+              <img src="{{ school.Image.url }}"  alt="">
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+<!-- rides End here -->
+{% endif %}
+
+{% endblock content %}

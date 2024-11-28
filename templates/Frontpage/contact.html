@@ -1,0 +1,134 @@
+{% extends 'Frontpage/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Page Header Start here -->
+  <section class="page-header section-notch">
+    <div class="overlay">
+      <div class="container">
+        <h3>Our Contact Info</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li>-</li>
+          <li>Contact us</li>
+        </ul>
+      </div><!-- container -->
+    </div><!-- overlay -->
+  </section><!-- page header -->
+  <!-- Page Header End here -->
+
+  <!-- Contact Start here -->
+  <section class="contact contact-page" style="margin-bottom: 50px;">
+    <div class="contact-details padding-120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <ul>
+              <li class="contact-item">
+                <span class="icon flaticon-signs"></span>
+                <div class="content">
+                  <h4>Our Location</h4>
+                  <p>Address : Manimala, Kuttiadi, Kozhikode, 673507</p>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="icon flaticon-smartphone"></span>
+                <div class="content">
+                  <h4>Phone Number</h4>
+                  <p> +91 8877 717 717  <br>
+                    +91 8590 131 130</p>
+                </div>
+              </li>
+              <li class="contact-item">
+                <span class="icon flaticon-message"></span>
+                <div class="content">
+                  <h4>Email Address</h4>
+                  <p>info@activeplanet.in</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-8 col-md-6 col-xs-12">
+            <div id="response">
+
+            </div>
+            <form class="contact-form" id="form">
+              <input name="name" id="name" style="border: 1px solid rgba(0, 0, 0, 0.405); border-radius: 5px;" type="text" placeholder="Your Name" class="contact-input">
+              <input name="mobile" id="mobile" style="border: 1px solid rgba(0, 0, 0, 0.405); border-radius: 5px;" type="text" placeholder="Your Mobile Number" class="contact-input">
+              <textarea name="description" id="description" style="border: 1px solid rgba(0, 0, 0, 0.405); border-radius: 5px;" rows="5" class="contact-input" placeholder="Enquiry"></textarea>
+              <input id="submit" style="border: 1px solid rgba(0, 0, 0, 0.405); border-radius: 5px;" type="button" name="submit" value="Send Message" class="contact-button">
+            </form>
+          </div>
+        </div><!-- row -->
+      </div><!-- container -->
+    </div><!-- contact-details -->
+    <div style="justify-content: center; display: flex;align-items: center;text-align: center;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.074071511767!2d75.71800707482774!3d11.618069443106462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba67d7194697a31%3A0x269a35b67c0c964b!2sActive%20Planet%2C%20manimala%20-kuttiadi!5e0!3m2!1sen!2sin!4v1697533051337!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <!-- <div class="contact-map" id="map-canvas"></div> -->
+  </section>
+  <!-- Contact End here -->
+
+  <!-- Google Map -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQlXnmyNPAeN3c3HNyWoUMqDk6bDF31Cg"></script>
+
+  <!-- custom -->
+  <script src="assets/js/custom.js"></script>
+
+  <script type="text/javascript">
+    //Home Page map
+    var styleArray = [
+      {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+          {
+            "color": "#65ac4c"
+          }
+        ]
+      }
+    ];
+
+    var mapOptions = {
+      center: new google.maps.LatLng(23.7393282, 90.3889611),
+      zoom: 15,
+      styles: styleArray,
+      scrollwheel: false,
+      backgroundColor: 'transparent',
+      mapTypeControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
+    var myLatlng = new google.maps.LatLng(23.7393282, 90.3889611);
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      icon: 'images/map-icon.png'
+    });
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+      $('#submit').on('click',function(){
+        var name = $('#name').val()
+        var mobile = $('#mobile').val()
+        var description = $('#description').val()
+
+        $.ajax({
+          url : '{% url "contact" %}',
+          type : 'POST',
+          data : {'name':name,'mobile':mobile,'description':description},
+
+          success : function(response){
+            if (response.status == 'success'){
+              $('#response').html('<p style="color:green">Enquiry submited successfully ... !</p>')
+              $('#form')[0].reset();
+            }else{
+              $('#response').html('<p style="color:red">Something Went wront cant make enquiry ... !</p>')
+            }
+          }
+        })
+      })
+    })
+</script>
+
+{% endblock content %}

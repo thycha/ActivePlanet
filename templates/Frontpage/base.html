@@ -1,0 +1,433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Active Planet</title>
+	<link href="{% static 'frontpage/ACTV PLNT fnl.png' %}" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+	<!-- Google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+	
+	<!-- Bootstrap -->
+	<link href="{% static 'frontpage/css/bootstrap.min.css' %}" rel="stylesheet">
+
+	<!-- Font-awesome -->
+	<link href="{% static 'frontpage/css/font-awesome.min.css' %}" rel="stylesheet">
+
+	<!-- Flaticon -->
+	<link href="{% static 'frontpage/flaticon/flaticon.css' %}" rel="stylesheet">
+
+	<!-- lightcase -->
+	<link href="{% static 'frontpage/css/lightcase.css' %}" rel="stylesheet">
+
+	<!-- Swiper -->
+	<link href="{% static 'frontpage/css/swiper.min.css' %}" rel="stylesheet">
+
+	<!-- quick-view -->
+	<link href="{% static 'frontpage/css/quick-view.css' %}" rel="stylesheet">
+
+	<!-- nstSlider -->
+	<link href="{% static 'frontpage/css/jquery.nstSlider.css' %}" rel="stylesheet">
+
+	<!-- flexslider -->
+	<link href="{% static 'frontpage/css/flexslider.css' %}" rel="stylesheet">
+
+	<!-- Style -->
+	<link href="{% static 'frontpage/css/rtl.css' %}" rel="stylesheet">
+
+	<!-- Style -->
+	<link href="{% static 'frontpage/css/style.css' %}" rel="stylesheet">
+
+	<!-- Responsive -->
+	<link href="{% static 'frontpage/css/responsive.css' %}" rel="stylesheet">
+	
+	<!-- Font Awsome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+
+	/* Default background image for larger screens */
+	/* .banner-item {
+	  background-image: url('https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=');
+	} */
+  
+	/* Media Query for Phone Screens */
+	@media (max-width: 767px) {
+		.banner-item {
+			background-image: url('https://images.pexels.com/photos/1386604/pexels-photo-1386604.jpeg?auto=compress&cs=tinysrgb&w=600');
+		}
+	}
+
+	/* Style for the video container */
+	.video-container {
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	
+	/* Style for the video carousel */
+	.video-carousel {
+		display: flex;
+		transition: transform 0.5s;
+	}
+	
+	/* Style for individual video items in the carousel */
+	.video-item {
+		flex: 0 0 100%; /* Each video takes the full width of the screen */
+		height: 215px;
+	}
+	
+	/* Responsive styles for different screen sizes */
+	@media (min-width: 768px) {
+		.video-item {
+			flex: 0 0 33.333%; /* On larger screens, show three videos side by side */
+		}
+	}
+
+	.section-notch:before {
+		background: url('{% static "frontpage/section_notch_top.png" %}');
+	}
+
+	.section-notch:after {
+		background: url('{% static "frontpage/section_notch_bottom.png" %}');
+	}
+
+    .contact-page .contact-map:before {
+		background: url('{% static "frontpage/section_notch_top.png" %}');
+    }
+
+    .subscribe:before {
+		background: url('{% static "frontpage/section_notch_top.png" %}');
+    }
+
+    .about {
+        background-image: url('{% static "frontpage/background/about-bg.jpg" %}');
+    }
+
+    .teachers {
+        background-image: url('{% static "frontpage/background/teacher-bg.jpg" %}');
+    }
+
+    .achievements {
+        background-image: url('{% static "frontpage/background/achievements-bg.jpg" %}');
+    }
+
+    footer .footer-top {
+        background-image: url('{% static "frontpage/background/footer-bg.jpg" %}');
+    }
+
+	.page-header{
+		background-image: url('{% static "Frontpage/background/page-header-bg.jpg" %}');
+	}
+
+	.checked {
+		color: orange;
+	}
+
+</style>
+
+<!-- x-mas style -->
+
+<!-----------------------------------------------REMOVE AFTER XMAS--------------------------------------------------------------------------------------->
+
+<!-- Moving santa image -->
+<!-- <img class="santa" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/santas.gif" alt="Santa Be Watchin" /> -->
+
+<!-----------------------------------------------REMOVE AFTER XMAS--------------------------------------------------------------------------------------->
+
+<body id="scroll-top">
+	<!-- Preloader start here -->
+	<!-- <div id="preloader">
+		<img src="{% static 'frontpage/ActiveGif.gif' %}" alt="Preloader Image">
+	</div> -->
+	<!-- Preloader end here -->
+
+    <div>
+		<a href="https://wa.me/918877717717" target="_blank">
+			<img src="{% static 'frontpage/whatsapp.png' %}" style="max-width: 45px; position: fixed; z-index: 99; bottom: 130px;right: 16px;" alt="">
+		</a>
+		<a href="tel:8877717717">
+			<img src="{% static 'frontpage/telephone.png' %}" style="max-width: 40px; position: fixed; z-index: 99; bottom: 180px;right: 20px;"  alt="">
+		</a>
+	</div>
+ 
+	<!-- mobile menu start here -->
+	<div class="mobile-menu-area">
+		<div class="logo-area">
+			<a class="logo" href="{% url 'home' %}"><img src="{% static 'frontpage/ACTV PLNT fnl.png' %}"  alt="logo" class="img-responsive"></a>
+			<button type="button" class="navbar-toggle collapsed d-md-none" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+
+		<div class="mobile-menu" >
+			<ul class="m-menu">
+				<li  style="margin-top: 30px;"><a href="{% url 'home' %}">Home</a></li>
+				<li><a href="{% url 'about' %}">About</a></li>
+				<li><a href="{% url 'rides' %}">Rides</a></li>
+				<li><a href="{% url 'gallery' %}">Gallery</a></li>
+				<li><a href="{% url 'events' %}">Events</a></li>
+				<li><a href="{% url 'packages' %}">Packages</a></li>
+				<li><a style="color: rgb(232, 8, 34) ;" href="{% url 'contact' %}">Contact</a></li>
+				<li><a href="{% url 'contact' %}"><button style="background-color: rgb(141, 197, 0); border-radius: 5px; margin-top: 10px;">Book Tickets</button></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- mobile menu ending here -->
+
+	<!-- header Start here -->
+	<header>
+		<div class="header-top">
+			<div class="container">
+				<div class="ht-area">
+					<ul class="left">
+						<li><span><i class="fa fa-phone" aria-hidden="true"></i></span><a href="tel:+918877717717" class="text-white">Phone : +91 8877 717 717</a></li>
+						<li><span><i class="fa fa-clock-o" aria-hidden="true"></i></span> Opening Time : 10:00am - 9:00pm</li>
+						<li><span><i class="fa fa-home" aria-hidden="true"></i></span> Address : Manimala, Kuttiadi, Kozhikode, 673507</li>
+					</ul>
+					<ul class="right">
+						<li><a href="https://facebook.com/activeplanetpark/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.instagram.com/activeplanetpark/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+						<li><a href="https://youtube.com/@ActivePlanetPark?feature=shared"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+						<!-- <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+						<li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-menu">
+			<div class="container">
+				<div class="row no-gutters">
+					<nav class="main-menu-area w-100">
+						<div class="logo-area">
+							<a class="" href="{% url 'home' %}"><img src="{% static 'frontpage/ACTV PLNT fnl.png' %}" style="max-width: 80%;" alt="logo" class="img-responsive"></a>
+							<button type="button" class="navbar-toggle collapsed d-md-none" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+
+						<div class="menu-area"`>
+							<ul class="menu">
+								<li><a href="{% url 'home' %}">Home</a></li>
+								<li><a href="{% url 'about' %}">About</a></li>
+								<li><a href="{% url 'rides' %}">Rides</a></li>
+								<li><a href="{% url 'gallery' %}">Gallery</a></li>
+								<li><a href="{% url 'events' %}">Events</a></li>
+								<li><a href="{% url 'packages' %}">Packages </a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+								<li><a href="https://wa.me/918877717717"><button style="background-color:rgb(141, 197, 0); border-radius: 5px; height: 40px; justify-content: center; align-items: center;text-align: center; display: flex;"> Book Tickets</button></a></li>
+							</ul>
+							<form class="menu-search-form">
+								<input type="text" name="search" placeholder="Search here...">
+								<span class="menu-search-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+							</form>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header End here -->
+
+	{% block content %}
+
+    {% endblock content %}
+
+	<!-- Subscribe Start here -->
+	<section class="subscribe">
+		<div class="container">
+			<div class="row">
+				<!-- <div class="col-lg-5 col-xs-12">
+					<h3>Join Our Newsletter</h3>
+				</div> -->
+				<!-- <div class="col-lg-7 col-xs-12">
+					<form action="/">
+						<input type="text" placeholder="Enter your e-mail here">
+						<input type="submit" value="Subscribe Now">
+					</form>
+				</div> -->
+			</div>
+		</div>
+	</section>
+	<!-- Subscribe End here -->
+
+	<!-- Footer Start here -->
+	<footer>
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<div class="footer-item">
+							<div class="title"><img src="{% static 'frontpage/ACTV PLNT fnl.png' %}" style="max-width: 50%;" alt="logo" class="img-responsive"></div>
+							<div class="footer-about">
+								<!-- <p>Distily enable team driven services through extensive is a relatonships platforms with interactive content. Enthusiastically scale effective.</p> -->
+								<ul>
+									<li><span><i class="fa fa-home" aria-hidden="true"></i></span>Manimala, Kuttiadi, Kozhikode,</li>
+									<li style="margin-left: 45px;">673507</li>
+									<li><span><i class="fa fa-phone" aria-hidden="true"></i></span>+91 8590 131 130</li>
+									<li><span><i class="fa fa-whatsapp" aria-hidden="true"></i></span>+91 8877 717 717</li>
+									<li><span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>info@activeplanet.in</li>
+									<!-- <li><span><i class="fa fa-globe" aria-hidden="true"></i></span> Email@admin Thycha Technologies</li> -->
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<div class="footer-item">
+							<h4 class="title">Quick Links</h4>
+							<ul class="footer-post">
+								<li>
+									<!-- <div class="image">
+										<a href="single.html"><img src="{% static 'images/blog/footer_post_01.jpg' %}" alt="post image"class="img-responsive"></a>
+									</div> -->
+									<div style="margin-left: 10px;" class="content">
+										<a href="{% url 'about' %}"><h6>About</h6></a>
+										<a href="{% url 'events' %}"><h6>Events</h6></a>
+										<a href="{% url 'packages' %}"><h6>Packages</h6></a>
+										<a href="{% url 'contact' %}"><h6>Contact</h6></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<div class="footer-item">
+							<h4 class="title">Exciting Picture</h4>
+							<ul class="twitter-post">
+								<li>
+									<div style="margin-left: 10px;" class="content">
+										<a href="{% url 'rides' %}"><h6>Rides</h6></a>
+										<a href="{% url 'gallery' %}"><h6>Gallery</h6></a>
+									</div>
+								</li>
+								<!-- <li>
+									<div class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+									<div class="content">
+										<p>@frankdoe amber tempor cum soluta nobis eleifend</p>
+										<span>2 years ago</span>
+									</div>
+								</li> -->
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-xs-12">
+						<div class="footer-item">
+							<h4 class="title">Recent Photos</h4>
+							<ul class="photos">
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2974.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2923.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2978.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2989.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2993.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2997.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A2999.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A3009.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+								<li><a href="#"><img src="{% static 'frontpage/image/_I2A3030.jpg' %}" alt="gallery image"
+											class="img-responsive"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><!-- row -->
+			</div><!-- container -->
+		</div><!-- footer top -->
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<p>&copy; 2024. Designed By <a target="_blank" href="https://thychatechnologies.com">Thycha Technologies</a></p>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<ul class="social-default">
+							<li><a href="https://facebook.com/activeplanetpark/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="https://www.instagram.com/activeplanetpark/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							<li><a href="https://youtube.com/@ActivePlanetPark?feature=shared"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+				</div><!-- row -->
+			</div><!-- container -->
+		</div><!-- footer bottom -->
+	</footer>
+	<a class="page-scroll scroll-top" href="#scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+	<!-- Footer End here -->
+    <script>
+		const preloader = document.querySelector('#preloader');
+		if (preloader) {
+			window.addEventListener('load', () => {
+			preloader.remove();
+			});
+		}
+	</script>
+
+	<!-- jquery -->
+	<script src="{% static 'frontpage/js/jquery-1.12.4.min.js' %}"></script>
+
+	<!-- Bootstrap -->
+	<script src="{% static 'frontpage/js/bootstrap.bundle.min.js' %}"></script>
+
+	<!-- Isotope -->
+	<script src="{% static 'frontpage/js/isotope.min.js' %}"></script>
+
+	<!-- lightcase -->
+	<script src="{% static 'frontpage/js/lightcase.js' %}"></script>
+
+	<!-- counterup -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+	<script src="{% static 'frontpage/js/jquery.counterup.min.js' %}"></script>
+
+	<!-- Swiper -->
+	<script src="{% static 'frontpage/js/swiper.jquery.min.js' %}"></script>
+
+	<!--progress-->
+	<script src="{% static 'frontpage/js/circle-progress.min.js' %}"></script>
+
+	<!--velocity-->
+	<script src="{% static 'frontpage/js/velocity.min.js' %}"></script>
+
+	<!--quick-view-->
+	<script src="{% static 'frontpage/js/quick-view.js' %}"></script>
+
+	<!--nstSlider-->
+	<script src="{% static 'frontpage/js/jquery.nstSlider.js' %}"></script>
+
+	<!--flexslider-->
+	<script src="{% static 'frontpage/js/flexslider-min.js' %}"></script>
+
+	<!--easing-->
+	<script src="{% static 'frontpage/js/jquery.easing.min.js' %}"></script>
+
+	<!--coundown-->
+	<script src="{% static 'frontpage/js/coundown.js' %}"></script>
+
+	<!-- custom -->
+	<script src="{% static 'frontpage/js/custom.js' %}"></script>
+	
+</body>
+
+</html>
